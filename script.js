@@ -6,14 +6,8 @@ function sum(a, b) {
 }
 sum(2,2)
 
-let assert = require('chai').assert;
 
-describe('sum', function() {
 
-    it('сумма - true', function() {
-        assert.isTrue(sum(2, 2), 'неправда')
-    });
-});
 
 // Переменная num должна быть равна 5. Проверить на соответствие.
 
@@ -22,12 +16,7 @@ let arr = [ [1, 2, 3], [4, 5, 6], [7,8,9] ];
 let num = arr[1][1];
 
 
-describe('num', function() {
 
-    it('переменная равна 5', function() {
-        assert.equal(num, 5, 'переменная не равна 5')
-    });
-});
 
 // Узнать, что нам вернет функция each в данных условиях. Проверить её на тип данных, который она возвращает,
 // на соответствие ожидаемому результату (который вы получили) и на свойство length.
@@ -43,18 +32,40 @@ var myFunc = function(a){
 }
 console.log(each(array, myFunc));
 
-describe('each', function() {
 
-    it('тип данных - массив', function() {
-        assert.isArray(each(array, myFunc), 'не массив')
+
+
+let assert = require('chai').assert;
+
+describe('Проверки', () => {
+
+	describe('sum', function() {
+
+		it('сумма - true', function() {
+			assert.isTrue(sum(2, 2), 'неправда')
+		});
 	});
-	it('ответ: [8,7,6,5,4]', function() {
-        assert.sameMembers(each(array, myFunc), [8, 7, 6, 5, 4], 'ответ не равен [8,7,6,5,4]')
+
+	describe('num', function() {
+
+		it('переменная равна 5', function() {
+			assert.equal(num, 5, 'переменная не равна 5')
+		});
 	});
-	it('длина массива равна 5', function() {
-        assert.lengthOf(each(array, myFunc), 5, 'размер массива не 5')
-    });
-});
+
+	describe('each', function() {
+
+		it('тип данных - массив', function() {
+			assert.isArray(each(array, myFunc), 'не массив')
+		});
+		it('ответ: [8,7,6,5,4]', function() {
+			assert.sameMembers(each(array, myFunc), [8, 7, 6, 5, 4], 'ответ не равен [8,7,6,5,4]')
+		});
+		it('длина массива равна 5', function() {
+			assert.lengthOf(each(array, myFunc), 5, 'размер массива не 5')
+		});
+	});
+})
 
 module.exports = {
 	sum: sum,
